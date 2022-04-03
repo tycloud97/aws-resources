@@ -55,4 +55,36 @@
 
 - Login / SSO
 
+# Service design
 
+- Design Fargate Cluster and reusable
+- Feature Flag service Serverless
+- CRUD Lambda DynamoDB
+- Backup / restore / disaster recovery
+- MFE (UI hook)
+- Tracing
+- Sync / Async
+- Single Repo / Common API Gateway
+- Profiling
+- Common Libraries
+- Activity Feed
+- Webhook
+- Schema for EB
+- User API
+- Consent / Pinpoint
+- Document gen
+- Email template
+- Messaging
+- Outlook
+- Doc outdate
+- Design builder
+- Low latency
+- Automation
+- Contact form
+- Blueprint
+- Image
+- File
+- Comment
+- SSO
+- KPI
+- Roles
