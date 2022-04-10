@@ -88,3 +88,4 @@
 - SSO
 - KPI
 - Roles
+- Aurora Cluster
