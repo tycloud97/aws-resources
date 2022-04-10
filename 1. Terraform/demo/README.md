@@ -4,6 +4,7 @@ Docs: https://www.terraform.io/
 
 - **Infrastructure as code**
 - Ví dụ: Sếp của bạn yêu cầu thiết lập VPC cho cả 3 môi trường **dev**, **staging** và **production**. Thiết lập trên **AWS Console** nhiều công đoạn, công việc lặp đi lặp lại, dễ sai sót...
+- ![Virtual Private Cloud](https://cloudacademy.com/wp-content/uploads/2016/02/nat-gateway.png)
 
 # Các lệnh thường dùng:
 
@@ -28,7 +29,6 @@ Docs: https://www.terraform.io/
 - Hạn chế việc chỉnh sửa thủ công trên Console để tránh xung đột với Terraform. Không chỉnh sửa file state bằng tay.
 - Trường hợp resources đã tồn tại, có thể sử dụng import state từ local để không cần phải tạo lại. (Có thể dùng tool https://github.com/GoogleCloudPlatform/terraformer để tạo Terraform definition code)
 - Naming convention, resources dùng **kebab-case**, variable dùng **snake_case**
-  
 
 # Đề mô
 
@@ -57,3 +57,7 @@ terraform apply -input=false ${TF_VAR_FILE:-$STAGE}.tfplan
 terraform plan -destroy -var-file=${TF_VAR_FILE:-$STAGE.tfvars} -out=${STAGE}.tfplan
 terraform apply -destroy -input=false ${TF_VAR_FILE:-$STAGE}.tfplan
 ```
+
+## Tham khảo
+
+https://cloudacademy.com/blog/managed-nat-gateway-aws/
