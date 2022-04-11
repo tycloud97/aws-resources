@@ -9,6 +9,7 @@ terraform {
       source  = "hashicorp/aws"
     }
   }
+  backend "s3" {}
 }
 
 module "custom-vpc" {

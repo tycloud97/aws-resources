@@ -119,15 +119,15 @@ resource "aws_nat_gateway" "nat_AZ1" {
   }
 }
 
-resource "aws_nat_gateway" "nat_AZ2" {
-  allocation_id = aws_eip.public_AZ2.id
-  subnet_id     = aws_subnet.second_public_az.id
-  tags = {
-    Name = "${local.base_name} Second AZ NAT Gateway"
-  }
+# resource "aws_nat_gateway" "nat_AZ2" {
+#   allocation_id = aws_eip.public_AZ2.id
+#   subnet_id     = aws_subnet.second_public_az.id
+#   tags = {
+#     Name = "${local.base_name} Second AZ NAT Gateway"
+#   }
 
-  depends_on = [aws_internet_gateway.igw]
-}
+#   depends_on = [aws_internet_gateway.igw]
+# }
 
 ## Create NAT Routing tables for the private subnets ##
 resource "aws_route_table" "private-route-to-nat-gw_AZ1" {
@@ -145,19 +145,19 @@ resource "aws_route" "private_subnet_nat_gateway_AZ1" {
 
 
 
-resource "aws_route_table" "private-route-to-nat-gw_AZ2" {
-  vpc_id = aws_vpc.main.id
-  tags = {
-    Name = "${local.base_name} Private Routing Table Second AZ"
-  }
+# resource "aws_route_table" "private-route-to-nat-gw_AZ2" {
+#   vpc_id = aws_vpc.main.id
+#   tags = {
+#     Name = "${local.base_name} Private Routing Table Second AZ"
+#   }
 
-}
+# }
 
-resource "aws_route" "private_subnet_nat_gateway_AZ2" {
-  route_table_id         = aws_route_table.private-route-to-nat-gw_AZ2.id
-  destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = aws_nat_gateway.nat_AZ2.id
-}
+# resource "aws_route" "private_subnet_nat_gateway_AZ2" {
+#   route_table_id         = aws_route_table.private-route-to-nat-gw_AZ2.id
+#   destination_cidr_block = "0.0.0.0/0"
+#   nat_gateway_id         = aws_nat_gateway.nat_AZ2.id
+# }
 
 ## Associate NAT Routing table to the private subnets ##
 resource "aws_route_table_association" "private_AZ1" {
@@ -165,7 +165,7 @@ resource "aws_route_table_association" "private_AZ1" {
   route_table_id = aws_route_table.private-route-to-nat-gw_AZ1.id
 }
 
-resource "aws_route_table_association" "private_AZ2" {
-  subnet_id      = aws_subnet.second_private_az.id
-  route_table_id = aws_route_table.private-route-to-nat-gw_AZ2.id
-}
+# resource "aws_route_table_association" "private_AZ2" {
+#   subnet_id      = aws_subnet.second_private_az.id
+#   route_table_id = aws_route_table.private-route-to-nat-gw_AZ2.id
+# }

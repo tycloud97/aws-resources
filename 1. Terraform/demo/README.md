@@ -1,4 +1,5 @@
 Docs: https://www.terraform.io/
+Install: https://learn.hashicorp.com/tutorials/terraform/install-cli
 
 # Terraform để làm gì?
 
