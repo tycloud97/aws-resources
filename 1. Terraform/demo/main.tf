@@ -27,3 +27,21 @@ module "custom-vpc" {
   second_public_subnet_cidr = var.second_public_subnet_cidr
 }
 
+
+# resource "aws_network_interface" "ubuntu-network-interface" {
+#   subnet_id   = module.custom-vpc.public_subnet_ids[0]
+
+#   tags = {
+#     Name = "primary_network_interface"
+#   }
+# }
+
+# resource "aws_instance" "ubuntu" {
+#   ami           = "ami-055d15d9cfddf7bd3"
+#   instance_type = "t2.micro"
+
+#   network_interface {
+#     network_interface_id = aws_network_interface.ubuntu-network-interface.id
+#     device_index         = 0
+#   }
+# }
